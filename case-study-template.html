@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- REPLACE: page title — client type + outcome -->
+<title>[Client Type] — [Outcome Summary] | Bare Branding Systems</title>
+<meta name="description" content="[Case study description — what was built, for whom, and the key result. 150 chars max.]" />
+<!-- REPLACE: slug -->
+<link rel="canonical" href="https://www.barebrandingsystems.com/work/[SLUG].html" />
+<meta name="theme-color" content="#09090d" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<link rel="stylesheet" href="/assets/css/chatbot.css" />
+<script>
+  (function(){var t=localStorage.getItem('bbs-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}else if(!window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-theme','light')}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='25%25' cy='15%25' r='80%25'%3E%3Cstop offset='0%25' stop-color='%23ddb87a'/%3E%3Cstop offset='45%25' stop-color='%23c49b5e'/%3E%3Cstop offset='100%25' stop-color='%2309090d'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3C/svg%3E" />
+<style>
+/* ── Case study template supplemental styles ───────────────── */
+
+/* Hero */
+.cs-hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:36px;align-items:center}
+.cs-badge{
+  display:inline-block;padding:5px 13px;border-radius:999px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid rgba(142,115,91,.2);background:var(--gold-glow);color:var(--gold)
+}
+.cs-meta-item{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:8px
+}
+.cs-meta-item strong{color:var(--ink-2);font-weight:500}
+.cs-meta-sep{color:var(--line-strong)}
+.cs-hero h1{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(36px,5.5vw,68px);
+  line-height:1.02;letter-spacing:-.03em;
+  color:var(--ink);margin-bottom:28px;max-width:22ch
+}
+.cs-hero h1 em{font-style:italic;color:var(--gold)}
+.cs-hero-sub{font-size:17px;line-height:1.72;color:var(--ink-2);max-width:58ch}
+
+/* Overview metrics strip */
+.cs-metrics{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.cs-metric{
+  padding:40px 32px;border-right:1px solid var(--line);text-align:center
+}
+.cs-metric:last-child{border-right:0}
+.cs-metric-num{
+  font-family:var(--font-serif);
+  font-size:clamp(38px,4.5vw,60px);
+  letter-spacing:-.03em;line-height:1;
+  color:var(--gold);margin-bottom:10px
+}
+.cs-metric-label{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);line-height:1.55;max-width:22ch;margin:0 auto
+}
+
+/* Prose sections */
+.cs-section{padding:80px 0;border-bottom:1px solid var(--line)}
+.cs-section-inner{max-width:780px}
+.cs-eyebrow{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:18px
+}
+.cs-section h2{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(28px,3.4vw,44px);letter-spacing:-.025em;
+  color:var(--ink);margin-bottom:28px;line-height:1.06
+}
+.cs-prose p{
+  font-size:16px;line-height:1.8;color:var(--ink-2)
+}
+.cs-prose p+p{margin-top:18px}
+
+/* Approach cards */
+.cs-approach-card{
+  padding:32px;border:1px solid var(--line);
+  border-radius:var(--radius-lg);background:var(--surface);
+  transition:border-color .25s,box-shadow .25s
+}
+.cs-approach-card:hover{
+  border-color:rgba(142,115,91,.18);
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 30px var(--gold-glow)
+}
+.cs-approach-num{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px
+}
+.cs-approach-card h3{
+  font-family:var(--font-serif);font-weight:500;
+  font-size:21px;letter-spacing:-.015em;
+  color:var(--ink);margin-bottom:10px
+}
+.cs-approach-card p{font-size:14.5px;color:var(--muted);line-height:1.65}
+
+/* The build — technical section */
+.cs-build-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.cs-build-tech{
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  overflow:hidden
+}
+.cs-build-tech-item{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 24px;border-bottom:1px solid var(--line)
+}
+.cs-build-tech-item:last-child{border-bottom:0}
+.cs-build-tech-label{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);flex-shrink:0;width:88px
+}
+.cs-build-tech-value{font-size:14px;color:var(--ink-2)}
+
+/* Pullquote */
+.cs-pullquote{
+  border-left:2px solid var(--gold);padding:24px 0 24px 32px;margin:40px 0
+}
+.cs-pullquote blockquote{
+  font-family:var(--font-serif);font-weight:400;font-style:italic;
+  font-size:clamp(20px,2.4vw,28px);line-height:1.3;letter-spacing:-.015em;
+  color:var(--ink);margin:0 0 14px
+}
+.cs-pullquote cite{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted)
+}
+
+/* Outcome metrics */
+.cs-outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+.cs-outcome-card{
+  padding:24px 20px;border:1px solid var(--line);
+  border-radius:var(--radius-md);background:var(--surface);text-align:center
+}
+.cs-outcome-num{
+  font-family:var(--font-serif);font-size:clamp(28px,3vw,40px);
+  letter-spacing:-.03em;line-height:1;color:var(--gold);margin-bottom:8px
+}
+.cs-outcome-label{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);line-height:1.5
+}
+
+/* Testimonial block (hidden by default — uncomment to activate) */
+.cs-testimonial{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-lg);padding:40px;
+  position:relative;overflow:hidden
+}
+.cs-testimonial::before{
+  content:"\201C";
+  font-family:var(--font-serif);font-size:120px;line-height:.8;
+  color:var(--gold);opacity:.12;
+  position:absolute;top:20px;left:24px;pointer-events:none
+}
+.cs-testimonial blockquote{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(18px,2vw,24px);line-height:1.5;color:var(--ink);
+  margin:0 0 24px;padding-left:12px;position:relative;z-index:1
+}
+.cs-testimonial-attribution{
+  display:flex;align-items:center;gap:16px;position:relative;z-index:1
+}
+.cs-testimonial-role{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)
+}
+.cs-testimonial-name{font-size:14px;font-weight:500;color:var(--ink-2);margin-bottom:3px}
+
+/* Similar work cards */
+.cs-similar-card{
+  display:block;padding:28px 32px;
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:var(--surface);text-decoration:none;
+  transition:border-color .25s,box-shadow .25s,transform .25s
+}
+.cs-similar-card:hover{
+  border-color:rgba(142,115,91,.18);transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 30px var(--gold-glow)
+}
+.cs-similar-type{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px
+}
+.cs-similar-title{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:8px;line-height:1.1
+}
+.cs-similar-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.cs-similar-arrow{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold-soft)
+}
+
+/* Final CTA strip */
+.cs-cta{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-xl);padding:56px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:32px;flex-wrap:wrap;position:relative;overflow:hidden
+}
+.cs-cta::before{
+  content:"";position:absolute;right:-60px;top:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(142,115,91,.14) 0%,transparent 65%);
+  filter:blur(20px);pointer-events:none
+}
+.cs-cta h2{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(24px,2.8vw,38px);letter-spacing:-.025em;
+  color:var(--ink);max-width:22ch;position:relative;z-index:1
+}
+.cs-cta-actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+
+/* Responsive */
+@media(max-width:860px){
+  .cs-build-layout{grid-template-columns:1fr}
+  .cs-outcome-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .cs-metrics{grid-template-columns:1fr}
+  .cs-metric{border-right:0;border-bottom:1px solid var(--line)}
+  .cs-metric:last-child{border-bottom:0}
+  .cs-outcome-grid{grid-template-columns:1fr 1fr}
+  .cs-hero{padding:60px 0 52px}
+  .cs-cta{padding:40px 28px;flex-direction:column}
+}
+</style>
+<meta property="og:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Crystal Dong and Timara Lau — Bare Branding Systems" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+</head>
+<body>
+
+<!-- REPLACE: no active class needed on nav for case study pages -->
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/about.html">About</a>
+      <a href="/journey.html">Journey</a>
+      <a href="/ai-automation.html">Systems</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">Infrastructure <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-panel" role="menu">
+          <div class="nav-dropdown-panel-inner">
+          <a href="/ventures.html" role="menuitem">Infrastructure Overview</a>
+          <a href="/ai-automation.html" role="menuitem">AI &amp; Automation</a>
+          <a href="/lms-insight-analysis.html" role="menuitem">Education Systems</a>
+          <a href="/web3-rwa.html" role="menuitem">Real Estate Tokenization</a>
+          <a href="/real-estate-infrastructure.html" role="menuitem">Real Estate Infrastructure</a>
+          <a href="/ventures.html" role="menuitem">Growth &amp; Media Systems</a>
+          </div>
+        </div>
+      </div>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle theme">
+      <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+      <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ── 1. Hero ──────────────────────────────────────────────── -->
+<section class="cs-hero">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:32px" aria-label="Breadcrumb">
+      <a href="/" style="color:var(--muted)">Home</a> &nbsp;/&nbsp;
+      <!-- REPLACE: link to work index if it exists -->
+      <a href="/work/" style="color:var(--muted)">Work</a> &nbsp;/&nbsp;
+      <!-- REPLACE: case study short title -->
+      [Case Study Short Title]
+    </nav>
+
+    <!-- Meta row: industry + project type + duration -->
+    <div class="cs-meta-row reveal">
+      <!-- REPLACE: industry badge -->
+      <span class="cs-badge">[Industry — e.g. SaaS / Ed-Tech / Web3]</span>
+      <span class="cs-meta-sep" aria-hidden="true">&middot;</span>
+      <div class="cs-meta-item">
+        <!-- REPLACE: project type -->
+        <span>Project</span><strong>[Type — e.g. AI Automation Build]</strong>
+      </div>
+      <span class="cs-meta-sep" aria-hidden="true">&middot;</span>
+      <div class="cs-meta-item">
+        <!-- REPLACE: engagement duration -->
+        <span>Duration</span><strong>[e.g. 3 months]</strong>
+      </div>
+    </div>
+
+    <!-- REPLACE: h1 — client type + outcome. Use <em> for key word -->
+    <h1 class="reveal">
+      [Company Type] Scales from Manual<br>to <em>Automated</em>: [Outcome Headline]
+    </h1>
+
+    <!-- REPLACE: 2-sentence case study overview -->
+    <p class="cs-hero-sub reveal">
+      [First sentence: who the client is (keep vague — no names) and what they were dealing with.] [Second sentence: what was built and what it changed.]
+    </p>
+
+  </div>
+</section>
+
+<!-- ── 2. Overview stats ─────────────────────────────────────── -->
+<div class="container">
+  <div class="cs-metrics reveal">
+    <!-- REPLACE: 3 outcome metrics -->
+    <div class="cs-metric">
+      <!-- REPLACE: metric number -->
+      <div class="cs-metric-num">[X]%</div>
+      <!-- REPLACE: metric label -->
+      <div class="cs-metric-label">Reduction in [manual process or time metric]</div>
+    </div>
+    <div class="cs-metric">
+      <!-- REPLACE: metric number -->
+      <div class="cs-metric-num">[X]x</div>
+      <!-- REPLACE: metric label -->
+      <div class="cs-metric-label">[Throughput / output / capacity] improvement</div>
+    </div>
+    <div class="cs-metric">
+      <!-- REPLACE: metric number -->
+      <div class="cs-metric-num">[X]h</div>
+      <!-- REPLACE: metric label -->
+      <div class="cs-metric-label">Saved per [week / sprint / cycle] across the team</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. The challenge ─────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-section-inner reveal">
+      <div class="cs-eyebrow">The Challenge</div>
+      <!-- REPLACE: challenge heading -->
+      <h2>[Short, punchy framing of the core problem]</h2>
+      <!-- REPLACE: 2 paragraphs describing the challenge -->
+      <div class="cs-prose">
+        <p>[Paragraph 1: Context — describe the client's situation, what they were doing manually or inefficiently, and why it was becoming a bottleneck. Keep the client anonymous — use descriptors like "a mid-size SaaS operator" or "a university department."]</p>
+        <p>[Paragraph 2: Stakes — what would happen if this wasn't solved? What were the downstream consequences of the problem? Make the cost of inaction clear.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. Our approach ──────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="cs-eyebrow">Our Approach</div>
+        <!-- REPLACE: approach heading -->
+        <h2 class="display display-3">[How we framed the solution]</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: 3 approach cards -->
+    <div class="grid grid-3 reveal">
+      <div class="cs-approach-card">
+        <div class="cs-approach-num">01 &mdash; [Phase name]</div>
+        <!-- REPLACE: approach step 1 -->
+        <h3>[Step Title]</h3>
+        <p>[2–3 sentences describing this phase of the engagement — what was done, why, and what it produced.]</p>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-num">02 &mdash; [Phase name]</div>
+        <!-- REPLACE: approach step 2 -->
+        <h3>[Step Title]</h3>
+        <p>[2–3 sentences describing this phase of the engagement — what was done, why, and what it produced.]</p>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-num">03 &mdash; [Phase name]</div>
+        <!-- REPLACE: approach step 3 -->
+        <h3>[Step Title]</h3>
+        <p>[2–3 sentences describing this phase of the engagement — what was done, why, and what it produced.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. The build — technical breakdown ───────────────────── -->
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-section-inner">
+      <div class="cs-eyebrow reveal">The Build</div>
+      <!-- REPLACE: build section heading -->
+      <h2 class="reveal">[What was actually constructed]</h2>
+
+      <div class="cs-build-layout reveal">
+
+        <!-- Prose description of the build -->
+        <div class="cs-prose">
+          <!-- REPLACE: 2 paragraphs on technical execution -->
+          <p>[Paragraph 1: Describe the technical components built — what systems, tools, integrations, or workflows were created. Be specific enough to demonstrate expertise without revealing proprietary methods.]</p>
+          <p>[Paragraph 2: Describe how the pieces fit together and what made this build particularly well-suited to the client's constraints — timeline, team size, existing stack, etc.]</p>
+
+          <!-- REPLACE: pullquote from the engagement — can be a client statement or internal framing -->
+          <div class="cs-pullquote">
+            <blockquote>&ldquo;[A memorable quote from the engagement — either a client statement kept anonymous, or an internal framing of the problem. Should feel human and specific, not generic.]&rdquo;</blockquote>
+            <!-- REPLACE: attribution — keep vague, e.g. "Founder, SaaS operator" -->
+            <cite>[Role], [Client descriptor — e.g. "Series A founder"]</cite>
+          </div>
+        </div>
+
+        <!-- Technical stack / build details -->
+        <div>
+          <div class="cs-build-tech">
+            <!-- REPLACE: tech stack rows — add or remove as needed -->
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Stack</div>
+              <div class="cs-build-tech-value">[e.g. n8n, Make, Airtable]</div>
+            </div>
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Integrations</div>
+              <div class="cs-build-tech-value">[e.g. HubSpot, Slack, OpenAI]</div>
+            </div>
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Deployed</div>
+              <!-- REPLACE: deployment method -->
+              <div class="cs-build-tech-value">[e.g. Cloud-hosted, self-contained]</div>
+            </div>
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Timeline</div>
+              <!-- REPLACE: build timeline -->
+              <div class="cs-build-tech-value">[e.g. 6 weeks]</div>
+            </div>
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Team size</div>
+              <!-- REPLACE: team size -->
+              <div class="cs-build-tech-value">[e.g. 2 engineers, 1 strategist]</div>
+            </div>
+            <div class="cs-build-tech-item">
+              <div class="cs-build-tech-label">Handoff</div>
+              <!-- REPLACE: handoff type -->
+              <div class="cs-build-tech-value">[e.g. Full documentation + training]</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. The outcome ───────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-section-inner">
+      <div class="cs-eyebrow reveal">The Outcome</div>
+      <!-- REPLACE: outcome heading -->
+      <h2 class="reveal">[What changed, measured and felt]</h2>
+
+      <!-- REPLACE: 4 outcome metric cards -->
+      <div class="cs-outcome-grid reveal">
+        <div class="cs-outcome-card">
+          <!-- REPLACE: metric -->
+          <div class="cs-outcome-num">[X]%</div>
+          <div class="cs-outcome-label">[Outcome metric 1]</div>
+        </div>
+        <div class="cs-outcome-card">
+          <!-- REPLACE: metric -->
+          <div class="cs-outcome-num">[X]x</div>
+          <div class="cs-outcome-label">[Outcome metric 2]</div>
+        </div>
+        <div class="cs-outcome-card">
+          <!-- REPLACE: metric -->
+          <div class="cs-outcome-num">$[X]k</div>
+          <div class="cs-outcome-label">[Outcome metric 3]</div>
+        </div>
+        <div class="cs-outcome-card">
+          <!-- REPLACE: metric -->
+          <div class="cs-outcome-num">[X]d</div>
+          <div class="cs-outcome-label">[Outcome metric 4]</div>
+        </div>
+      </div>
+
+      <!-- REPLACE: outcome description prose -->
+      <div class="cs-prose reveal">
+        <p>[Paragraph describing the qualitative outcome — what did the client's team feel, what did the business unlock, and what's now possible that wasn't before? Ground it in reality; avoid superlatives.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. Testimonial (disabled by default — uncomment to use) ─
+
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-section-inner">
+
+      <div class="cs-testimonial reveal">
+        REPLACE: client quote — keep anonymous
+        <blockquote>
+          &ldquo;[Client testimonial — authentic, specific, and attributed only to a role, not a name. Should describe the experience of working with Bare Branding Systems and the tangible impact.]&rdquo;
+        </blockquote>
+        <div class="cs-testimonial-attribution">
+          <div>
+            REPLACE: name withheld or use first name only
+            <div class="cs-testimonial-name">[First Name or "Client"]</div>
+            REPLACE: role and company descriptor
+            <div class="cs-testimonial-role">[Role] — [Company type, e.g. "Series A SaaS Founder"]</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+── end testimonial block ── -->
+
+<!-- ── 8. Similar work ──────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="cs-eyebrow">Similar Work</div>
+        <h2 class="display display-3">More from the portfolio.</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: 2 cards linking to other case studies or pillar pages -->
+    <div class="grid grid-2 reveal" style="max-width:860px">
+
+      <!-- REPLACE: similar case study or pillar page 1 -->
+      <a class="cs-similar-card" href="/[SLUG].html">
+        <!-- REPLACE: project type badge -->
+        <div class="cs-similar-type">[Project Type]</div>
+        <!-- REPLACE: case study title -->
+        <div class="cs-similar-title">[Case Study or Page Title]</div>
+        <!-- REPLACE: 1-sentence teaser -->
+        <p class="cs-similar-desc">[One sentence describing this related project and what makes it relevant to the reader here.]</p>
+        <div class="cs-similar-arrow">Read case study →</div>
+      </a>
+
+      <!-- REPLACE: similar case study or pillar page 2 -->
+      <a class="cs-similar-card" href="/[SLUG].html">
+        <!-- REPLACE: project type badge -->
+        <div class="cs-similar-type">[Project Type]</div>
+        <!-- REPLACE: case study title -->
+        <div class="cs-similar-title">[Case Study or Page Title]</div>
+        <!-- REPLACE: 1-sentence teaser -->
+        <p class="cs-similar-desc">[One sentence describing this related project and what makes it relevant to the reader here.]</p>
+        <div class="cs-similar-arrow">Read case study →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 9. Final CTA ─────────────────────────────────────────── -->
+<section style="padding:80px 0">
+  <div class="container">
+    <div class="cs-cta reveal">
+      <!-- REPLACE: CTA heading — tie it to what this case study is about -->
+      <h2>Working on something similar?</h2>
+      <div class="cs-cta-actions">
+        <a class="btn btn-gold" href="/contact.html">Start the Conversation <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="/ai-automation.html">See Our Systems Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+        <p>Bare Branding Systems builds operational infrastructure, automation systems, and venture development frameworks for modern companies and emerging technology ecosystems.</p>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/journey.html">Journey</a></li><li><a href="/blog.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Systems</h5><ul><li><a href="/ai-infrastructure.html">AI Infrastructure</a></li><li><a href="/workflow-systems.html">Workflow Systems</a></li><li><a href="/operational-infrastructure.html">Operational Infrastructure</a></li><li><a href="/ai-automation.html">AI &amp; Automation</a></li></ul></div>
+      <div class="footer-col"><h5>Infrastructure</h5><ul><li><a href="/lms-insight-analysis.html">Education Systems</a></li><li><a href="/web3-rwa.html">Real Estate Tokenization</a></li><li><a href="/real-estate-infrastructure.html">Real Estate Infrastructure</a></li><li><a href="/ventures.html">Infrastructure Overview</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>&copy; <span data-year>2026</span> Bare Branding Systems. All rights reserved.</div><div><a href="mailto:hello@barebrandingsystems.com">hello@barebrandingsystems.com</a></div></div>
+  </div>
+</footer>
+
+<script src="/assets/js/theme.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/chatbot.js" defer></script>
+<script src="/assets/js/motion.js" defer></script>
+</body>
+</html>

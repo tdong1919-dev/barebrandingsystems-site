@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- REPLACE: page title and venture name -->
+<title>[VENTURE NAME] | Bare Branding Systems</title>
+<meta name="description" content="[VENTURE DESCRIPTION — 1–2 sentences, 150 chars max]" />
+<!-- REPLACE: slug -->
+<link rel="canonical" href="https://www.barebrandingsystems.com/[SLUG].html" />
+<meta name="theme-color" content="#09090d" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<link rel="stylesheet" href="/assets/css/chatbot.css" />
+<script>
+  (function(){var t=localStorage.getItem('bbs-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}else if(!window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-theme','light')}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='25%25' cy='15%25' r='80%25'%3E%3Cstop offset='0%25' stop-color='%23ddb87a'/%3E%3Cstop offset='45%25' stop-color='%23c49b5e'/%3E%3Cstop offset='100%25' stop-color='%2309090d'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3C/svg%3E" />
+<style>
+/* ── Venture template supplemental styles ──────────────────── */
+
+/* Status badge variants */
+.venture-status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;
+  border:1px solid rgba(185,146,94,.15);
+  background:var(--gold-glow);color:var(--gold)
+}
+.venture-status .status-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+  display:inline-block
+}
+/* REPLACE: use .status-active, .status-development, or .status-coming for different states */
+.venture-status.status-active .status-dot{background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,.4)}
+.venture-status.status-active{color:#4ade80;border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.06)}
+.venture-status.status-development .status-dot{animation:pulse-dot 2s ease infinite}
+.venture-status.status-coming .status-dot{animation:pulse-dot 2s ease infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+/* Hero */
+.venture-hero{padding:100px 0 80px;text-align:center;position:relative}
+.venture-hero-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.venture-hero h1{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(44px,7vw,80px);
+  letter-spacing:-.03em;line-height:1.0;
+  color:var(--ink);margin:28px 0 16px
+}
+.venture-hero h1 em{font-style:italic;color:var(--gold)}
+.venture-hero-subtitle{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(18px,2vw,24px);color:var(--muted);
+  margin-bottom:28px;line-height:1.4
+}
+.venture-hero-desc{font-size:17px;line-height:1.75;color:var(--ink-2);max-width:58ch;margin:0 auto 40px}
+
+/* What it does card */
+.venture-does{
+  padding:32px;border:1px solid var(--line);
+  border-radius:var(--radius-lg);background:var(--surface);
+  max-width:640px;margin:0 auto 40px;text-align:left
+}
+.venture-does-label{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:20px
+}
+.venture-does-list{display:flex;flex-direction:column;gap:14px}
+.venture-does-item{display:flex;gap:12px;align-items:flex-start}
+.venture-does-item .arrow{
+  color:var(--gold);font-family:var(--font-mono);
+  flex-shrink:0;margin-top:2px
+}
+.venture-does-item span{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+
+/* Who it's for */
+.venture-for-card{
+  padding:28px;border:1px solid var(--line);
+  border-radius:var(--radius-lg);background:var(--surface);
+  transition:border-color .25s,box-shadow .25s
+}
+.venture-for-card:hover{
+  border-color:rgba(142,115,91,.18);
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 30px var(--gold-glow)
+}
+.venture-for-title{
+  font-family:var(--font-serif);font-weight:500;
+  font-size:19px;letter-spacing:-.015em;
+  color:var(--ink);margin-bottom:8px
+}
+.venture-for-desc{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* How it works — 3 steps */
+.venture-steps{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.venture-step{
+  display:grid;grid-template-columns:72px 1fr;align-items:start;gap:0;
+  padding:28px 32px;border-bottom:1px solid var(--line);
+  transition:background .22s
+}
+.venture-step:last-child{border-bottom:0}
+.venture-step:hover{background:rgba(245,242,238,.025)}
+.venture-step-num{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);padding-top:4px
+}
+.venture-step h4{
+  font-family:var(--font-serif);font-weight:500;
+  font-size:20px;letter-spacing:-.015em;color:var(--ink);
+  margin-bottom:6px
+}
+.venture-step p{font-size:14.5px;color:var(--muted);line-height:1.65}
+
+/* Current status / progress */
+.venture-progress{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.venture-progress-item{
+  display:flex;align-items:center;gap:20px;
+  padding:20px 28px;border-bottom:1px solid var(--line)
+}
+.venture-progress-item:last-child{border-bottom:0}
+.venture-progress-phase{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);flex-shrink:0;width:80px
+}
+.venture-progress-item.complete .venture-progress-phase{color:var(--gold)}
+.venture-progress-item.active .venture-progress-phase{color:var(--ink-2)}
+.venture-progress-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--line);border:2px solid var(--line-strong);
+  flex-shrink:0
+}
+.venture-progress-item.complete .venture-progress-dot{background:var(--gold);border-color:var(--gold)}
+.venture-progress-item.active .venture-progress-dot{background:transparent;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-glow),0 0 12px var(--gold-glow)}
+.venture-progress-label{font-size:15px;color:var(--muted)}
+.venture-progress-item.complete .venture-progress-label{color:var(--ink-2)}
+.venture-progress-item.active .venture-progress-label{color:var(--ink);font-weight:500}
+
+/* CTA section */
+.venture-cta{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-xl);padding:56px 48px;
+  text-align:center;position:relative;overflow:hidden
+}
+.venture-cta::before{
+  content:"";position:absolute;right:-80px;top:-80px;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(142,115,91,.14) 0%,transparent 65%);
+  filter:blur(20px);pointer-events:none
+}
+.venture-cta h2{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(26px,3vw,38px);letter-spacing:-.025em;
+  color:var(--ink);margin-bottom:14px;position:relative;z-index:1
+}
+.venture-cta p{
+  font-size:15px;color:var(--muted);max-width:52ch;
+  margin:0 auto 32px;line-height:1.7;position:relative;z-index:1
+}
+.venture-cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* Related ventures */
+.venture-related-card{
+  display:block;padding:28px 32px;border:1px solid var(--line);
+  border-radius:var(--radius-lg);background:var(--surface);
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+  text-decoration:none
+}
+.venture-related-card:hover{
+  border-color:rgba(142,115,91,.18);transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 30px var(--gold-glow)
+}
+.venture-related-type{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px
+}
+.venture-related-name{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:8px;line-height:1.1
+}
+.venture-related-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.venture-related-arrow{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold-soft)
+}
+
+@media(max-width:700px){
+  .venture-hero{padding:72px 0 56px}
+  .venture-cta{padding:40px 28px}
+  .venture-step{grid-template-columns:1fr;gap:8px}
+  .venture-step-num{padding-top:0}
+}
+</style>
+<meta property="og:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Crystal Dong and Timara Lau — Bare Branding Systems" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+</head>
+<body>
+
+<!-- REPLACE: set class="active" on the correct nav link for this venture's parent section -->
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/about.html">About</a>
+      <a href="/journey.html">Journey</a>
+      <a href="/ai-automation.html">Systems</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">Infrastructure <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-panel" role="menu">
+          <div class="nav-dropdown-panel-inner">
+          <a href="/ventures.html" role="menuitem">Infrastructure Overview</a>
+          <a href="/ai-automation.html" role="menuitem">AI &amp; Automation</a>
+          <a href="/lms-insight-analysis.html" role="menuitem">Education Systems</a>
+          <a href="/web3-rwa.html" role="menuitem">Real Estate Tokenization</a>
+          <a href="/real-estate-infrastructure.html" role="menuitem">Real Estate Infrastructure</a>
+          <a href="/ventures.html" role="menuitem">Growth &amp; Media Systems</a>
+          </div>
+        </div>
+      </div>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle theme">
+      <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+      <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ── 1. Hero ──────────────────────────────────────────────── -->
+<section class="venture-hero">
+  <div class="page-head-orb page-head-orb-1" aria-hidden="true"></div>
+  <div class="page-head-orb page-head-orb-2" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- REPLACE: breadcrumb trail -->
+    <nav class="breadcrumb" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;text-align:left" aria-label="Breadcrumb">
+      <a href="/" style="color:var(--muted)">Home</a> &nbsp;/&nbsp;
+      <a href="/ventures.html" style="color:var(--muted)">Ventures</a> &nbsp;/&nbsp;
+      <!-- REPLACE: venture name -->
+      [VENTURE NAME]
+    </nav>
+
+    <div class="venture-hero-inner">
+
+      <!-- REPLACE: venture category (e.g. "Education Technology", "AI Infrastructure") -->
+      <div class="venture-status status-coming reveal">
+        <span class="status-dot" aria-hidden="true"></span>
+        <!-- REPLACE: status label — Coming Soon / Active / In Development -->
+        Coming Soon
+      </div>
+
+      <!-- REPLACE: venture category badge -->
+      <div style="margin-top:20px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)" class="reveal">
+        [VENTURE CATEGORY]
+      </div>
+
+      <!-- REPLACE: venture name. Use <em> for stylized word -->
+      <h1 class="reveal">[VENTURE<br><em>NAME]</em></h1>
+
+      <!-- REPLACE: short italic subtitle / tagline -->
+      <div class="venture-hero-subtitle reveal">[A one-line description of what this venture does or stands for]</div>
+
+      <!-- REPLACE: 2-sentence venture description -->
+      <p class="venture-hero-desc reveal">
+        [First sentence describing the core problem this venture solves.] [Second sentence describing the approach or differentiation.]
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. What it does ──────────────────────────────────────── -->
+<section style="padding:0 0 80px">
+  <div class="container">
+
+    <!-- REPLACE: 4 bullet features -->
+    <div class="venture-does reveal">
+      <div class="venture-does-label">What it does</div>
+      <div class="venture-does-list">
+        <div class="venture-does-item">
+          <span class="arrow">→</span>
+          <span>[Feature or capability 1 — concise, outcome-focused]</span>
+        </div>
+        <div class="venture-does-item">
+          <span class="arrow">→</span>
+          <span>[Feature or capability 2 — concise, outcome-focused]</span>
+        </div>
+        <div class="venture-does-item">
+          <span class="arrow">→</span>
+          <span>[Feature or capability 3 — concise, outcome-focused]</span>
+        </div>
+        <div class="venture-does-item">
+          <span class="arrow">→</span>
+          <span>[Feature or capability 4 — concise, outcome-focused]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero CTA buttons -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="reveal">
+      <!-- REPLACE: primary CTA label and destination -->
+      <a class="btn btn-gold" href="/contact.html">[Primary CTA — e.g. Get Early Access] <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="/ventures.html">All Ventures</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 3. Who it's for ──────────────────────────────────────── -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="eyebrow">Who it&rsquo;s for</div>
+        <!-- REPLACE: section heading -->
+        <h2 class="display display-3">Built for [audience type].</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: 3 audience cards -->
+    <div class="grid grid-3 reveal">
+      <div class="venture-for-card">
+        <!-- REPLACE: audience 1 -->
+        <div class="venture-for-title">[Audience 1 Title]</div>
+        <p class="venture-for-desc">[Description of this audience and why this venture is built for them — 2 sentences.]</p>
+      </div>
+      <div class="venture-for-card">
+        <!-- REPLACE: audience 2 -->
+        <div class="venture-for-title">[Audience 2 Title]</div>
+        <p class="venture-for-desc">[Description of this audience and why this venture is built for them — 2 sentences.]</p>
+      </div>
+      <div class="venture-for-card">
+        <!-- REPLACE: audience 3 -->
+        <div class="venture-for-title">[Audience 3 Title]</div>
+        <p class="venture-for-desc">[Description of this audience and why this venture is built for them — 2 sentences.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. How it works — 3-step process ─────────────────────── -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="eyebrow">How it works</div>
+        <!-- REPLACE: section heading -->
+        <h2 class="display display-3">From [start state] to [end state].</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: 3 process steps -->
+    <div class="venture-steps reveal">
+      <div class="venture-step">
+        <div class="venture-step-num">01</div>
+        <div>
+          <!-- REPLACE: step 1 -->
+          <h4>[Step 1 Title]</h4>
+          <p>[Describe what happens in this step — 1–2 sentences. Keep it concrete and user-facing.]</p>
+        </div>
+      </div>
+      <div class="venture-step">
+        <div class="venture-step-num">02</div>
+        <div>
+          <!-- REPLACE: step 2 -->
+          <h4>[Step 2 Title]</h4>
+          <p>[Describe what happens in this step — 1–2 sentences. Keep it concrete and user-facing.]</p>
+        </div>
+      </div>
+      <div class="venture-step">
+        <div class="venture-step-num">03</div>
+        <div>
+          <!-- REPLACE: step 3 -->
+          <h4>[Step 3 Title]</h4>
+          <p>[Describe what happens in this step — 1–2 sentences. Keep it concrete and user-facing.]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. Current status — progress indicator ───────────────── -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="eyebrow">Current Status</div>
+        <!-- REPLACE: heading -->
+        <h2 class="display display-3">Where we are.</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: progress stages. Classes: .complete, .active, or neither (upcoming) -->
+    <div class="venture-progress reveal">
+      <div class="venture-progress-item complete">
+        <div class="venture-progress-phase">Phase 1</div>
+        <div class="venture-progress-dot" aria-hidden="true"></div>
+        <!-- REPLACE: phase label -->
+        <div class="venture-progress-label">[Phase 1 — e.g. Research &amp; Scope Definition] &mdash; Complete</div>
+      </div>
+      <div class="venture-progress-item complete">
+        <div class="venture-progress-phase">Phase 2</div>
+        <div class="venture-progress-dot" aria-hidden="true"></div>
+        <!-- REPLACE: phase label -->
+        <div class="venture-progress-label">[Phase 2 — e.g. Architecture &amp; Technical Design] &mdash; Complete</div>
+      </div>
+      <div class="venture-progress-item active">
+        <div class="venture-progress-phase">Phase 3</div>
+        <div class="venture-progress-dot" aria-hidden="true"></div>
+        <!-- REPLACE: current active phase -->
+        <div class="venture-progress-label">[Phase 3 — e.g. MVP Build] &mdash; In Progress</div>
+      </div>
+      <div class="venture-progress-item">
+        <div class="venture-progress-phase">Phase 4</div>
+        <div class="venture-progress-dot" aria-hidden="true"></div>
+        <!-- REPLACE: upcoming phase -->
+        <div class="venture-progress-label">[Phase 4 — e.g. Beta &amp; Early Access]</div>
+      </div>
+      <div class="venture-progress-item">
+        <div class="venture-progress-phase">Phase 5</div>
+        <div class="venture-progress-dot" aria-hidden="true"></div>
+        <!-- REPLACE: launch phase -->
+        <div class="venture-progress-label">[Phase 5 — e.g. Public Launch]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. Early access / partnership CTA ────────────────────── -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="venture-cta reveal">
+      <!-- REPLACE: CTA heading -->
+      <h2>[CTA Heading — e.g. Get Early Access]</h2>
+      <!-- REPLACE: CTA supporting copy -->
+      <p>[1–2 sentences explaining what early access or partnership means for this venture. What does the person get? What are you looking for?]</p>
+      <div class="venture-cta-actions">
+        <!-- REPLACE: primary button label -->
+        <a class="btn btn-gold" href="/contact.html">[Primary CTA] <span class="arr">→</span></a>
+        <!-- REPLACE: secondary button — optional, remove if not needed -->
+        <a class="btn btn-ghost" href="/ventures.html">View All Ventures</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. Related ventures ──────────────────────────────────── -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-title">
+        <div class="eyebrow">Related Ventures</div>
+        <h2 class="display display-3">Also in the ecosystem.</h2>
+      </div>
+    </div>
+
+    <!-- REPLACE: 2–3 related venture cards. Remove one <div> block if only 2. -->
+    <div class="grid grid-2 reveal" style="max-width:860px">
+
+      <!-- REPLACE: related venture 1 -->
+      <a class="venture-related-card" href="/[SLUG].html">
+        <!-- REPLACE: venture category -->
+        <div class="venture-related-type">[Venture Category]</div>
+        <!-- REPLACE: venture name -->
+        <div class="venture-related-name">[Related Venture Name]</div>
+        <!-- REPLACE: 1-sentence description -->
+        <p class="venture-related-desc">[One sentence describing this related venture and why it connects.]</p>
+        <div class="venture-related-arrow">Learn more →</div>
+      </a>
+
+      <!-- REPLACE: related venture 2 -->
+      <a class="venture-related-card" href="/[SLUG].html">
+        <!-- REPLACE: venture category -->
+        <div class="venture-related-type">[Venture Category]</div>
+        <!-- REPLACE: venture name -->
+        <div class="venture-related-name">[Related Venture Name]</div>
+        <!-- REPLACE: 1-sentence description -->
+        <p class="venture-related-desc">[One sentence describing this related venture and why it connects.]</p>
+        <div class="venture-related-arrow">Learn more →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+        <p>Bare Branding Systems builds operational infrastructure, automation systems, and venture development frameworks for modern companies and emerging technology ecosystems.</p>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/journey.html">Journey</a></li><li><a href="/blog.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Systems</h5><ul><li><a href="/ai-infrastructure.html">AI Infrastructure</a></li><li><a href="/workflow-systems.html">Workflow Systems</a></li><li><a href="/operational-infrastructure.html">Operational Infrastructure</a></li><li><a href="/ai-automation.html">AI &amp; Automation</a></li></ul></div>
+      <div class="footer-col"><h5>Infrastructure</h5><ul><li><a href="/lms-insight-analysis.html">Education Systems</a></li><li><a href="/web3-rwa.html">Real Estate Tokenization</a></li><li><a href="/real-estate-infrastructure.html">Real Estate Infrastructure</a></li><li><a href="/ventures.html">Infrastructure Overview</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>&copy; <span data-year>2026</span> Bare Branding Systems. All rights reserved.</div><div><a href="mailto:hello@barebrandingsystems.com">hello@barebrandingsystems.com</a></div></div>
+  </div>
+</footer>
+
+<script src="/assets/js/theme.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/chatbot.js" defer></script>
+<script src="/assets/js/motion.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>InsightGrade — AI-Assisted Academic Evaluation Infrastructure | Bare Branding Systems</title>
+<meta name="description" content="InsightGrade is AI-assisted academic evaluation infrastructure co-built by Bare Branding Systems and Dr. Leo Grassi — reducing educator workload and improving evaluation quality through deep AI reasoning and explainable grading." />
+<link rel="canonical" href="https://www.barebrandingsystems.com/lms-insight-analysis" />
+<meta name="theme-color" content="#09090d" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<script>
+  (function(){var t=localStorage.getItem('bbs-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}else if(!window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-theme','light')}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='25%25' cy='15%25' r='80%25'%3E%3Cstop offset='0%25' stop-color='%23ddb87a'/%3E%3Cstop offset='45%25' stop-color='%23c49b5e'/%3E%3Cstop offset='100%25' stop-color='%2309090d'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3C/svg%3E" />
+<style>
+/* ── InsightGrade Blue System ─────────────────────────────── */
+:root {
+  --ig-blue:        #2563eb;
+  --ig-blue-bright: #3b82f6;
+  --ig-blue-dark:   #1e3a8a;
+  --ig-blue-soft:   rgba(37,99,235,.10);
+  --ig-blue-glow:   rgba(37,99,235,.06);
+  --ig-blue-line:   rgba(37,99,235,.18);
+}
+[data-theme="light"] {
+  --ig-blue:        #1d4ed8;
+  --ig-blue-bright: #2563eb;
+  --ig-blue-dark:   #1e3a8a;
+  --ig-blue-soft:   rgba(29,78,216,.08);
+  --ig-blue-glow:   rgba(29,78,216,.05);
+  --ig-blue-line:   rgba(29,78,216,.15);
+}
+
+/* ── Co-founder Badge ─────────────────────────────────────── */
+.collab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 10px;
+  background: var(--ig-blue-glow);
+  border: 1px solid var(--ig-blue-line);
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.collab-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ig-blue-bright);
+  flex-shrink: 0;
+}
+.collab-badge-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ig-blue-bright);
+}
+
+/* ── Page Header ──────────────────────────────────────────── */
+.ig-header { padding: 88px 0 0 }
+.ig-breadcrumb-row { margin-bottom: 28px }
+.ig-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.ig-h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(46px,5.8vw,68px);
+  letter-spacing: -.03em;
+  line-height: 1.0;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.ig-h1 em {
+  font-style: italic;
+  color: var(--ig-blue-bright);
+}
+.ig-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 21px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 36px;
+  max-width: 600px;
+}
+.ig-header-rule { border: none; border-top: 1px solid var(--line); margin: 0 }
+
+/* ── Positioning Strip ────────────────────────────────────── */
+.ig-position-strip {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid var(--ig-blue-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 52px 0 0;
+}
+.ig-position-not {
+  flex: 1;
+  padding: 22px 24px;
+  border-right: 1px solid var(--ig-blue-line);
+}
+.ig-position-not:last-of-type { border-right: 1px solid var(--ig-blue-line) }
+.ig-position-is {
+  flex: 1.4;
+  padding: 22px 24px;
+  background: var(--ig-blue-soft);
+}
+.ig-position-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.ig-position-value {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.ig-position-is .ig-position-value {
+  color: var(--ig-blue-bright);
+  font-weight: 500;
+  font-size: 14.5px;
+}
+@media(max-width:680px) {
+  .ig-position-strip { flex-direction: column }
+  .ig-position-not { border-right: none; border-bottom: 1px solid var(--ig-blue-line) }
+  .ig-position-not:last-of-type { border-bottom: 1px solid var(--ig-blue-line) }
+}
+
+/* ── Body Prose ───────────────────────────────────────────── */
+.ig-body { padding: 64px 0 48px }
+.ig-prose { max-width: 680px }
+.ig-prose p {
+  font-size: 16.5px;
+  line-height: 1.82;
+  color: var(--ink-2);
+  margin-bottom: 1.5em;
+}
+.ig-prose p:last-child { margin-bottom: 0 }
+
+/* ── Status Block ─────────────────────────────────────────── */
+.ig-status {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border-left: 2px solid var(--ig-blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 40px;
+}
+.ig-status-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ig-status-text {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.ig-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ig-blue-bright);
+  flex-shrink: 0;
+  animation: ig-pulse 2.4s ease infinite;
+}
+@keyframes ig-pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+@media(max-width:560px) { .ig-status { flex-direction: column; align-items: flex-start; gap: 8px } }
+
+/* ── Infrastructure Section ───────────────────────────────── */
+.ig-infra { padding: 64px 0 }
+.ig-section-header { margin-bottom: 40px }
+.ig-section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ig-blue-bright);
+  margin-bottom: 12px;
+}
+.ig-section-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(26px,3.2vw,36px);
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.ig-section-subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.ig-infra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ig-infra-card {
+  background: var(--bg);
+  padding: 28px 26px;
+  position: relative;
+  transition: background .2s var(--ease);
+}
+.ig-infra-card:hover { background: var(--surface) }
+.ig-infra-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.ig-infra-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--ig-blue-soft);
+  border: 1px solid var(--ig-blue-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ig-infra-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ig-blue-bright);
+}
+.ig-infra-name {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.ig-infra-desc {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.72;
+}
+@media(max-width:840px) { .ig-infra-grid { grid-template-columns: repeat(2,1fr) } }
+@media(max-width:540px) { .ig-infra-grid { grid-template-columns: 1fr } }
+
+/* ── Outcomes Row ─────────────────────────────────────────── */
+.ig-outcomes { padding: 0 0 64px }
+.ig-outcomes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ig-outcome-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--ig-blue-line);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--ig-blue-glow);
+}
+.ig-outcome-chip svg {
+  width: 13px;
+  height: 13px;
+  color: var(--ig-blue-bright);
+  flex-shrink: 0;
+}
+
+/* ── MVP Demo ─────────────────────────────────────────────── */
+.ig-demo { padding: 0 0 80px }
+.ig-demo-card {
+  border: 1px solid var(--ig-blue-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+}
+.ig-demo-card-top {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ig-demo-meta {}
+.ig-demo-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ig-blue-bright);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ig-demo-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ig-blue-bright);
+  animation: ig-pulse 2s ease infinite;
+}
+.ig-demo-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.ig-demo-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 480px;
+}
+.ig-demo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 22px;
+  background: var(--ig-blue);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: background .2s var(--ease), transform .15s var(--ease);
+  white-space: nowrap;
+  align-self: center;
+}
+.ig-demo-cta:hover {
+  background: var(--ig-blue-bright);
+  transform: translateY(-1px);
+}
+.ig-demo-cta svg { width: 13px; height: 13px }
+.ig-demo-card-body {
+  padding: 22px 32px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.ig-demo-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ig-demo-spec-key {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ig-demo-spec-val {
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+@media(max-width:640px) {
+  .ig-demo-card-top { flex-direction: column }
+  .ig-demo-card-body { flex-direction: column; gap: 18px }
+}
+
+/* ── Closing ──────────────────────────────────────────────── */
+.ig-closing {
+  padding: 48px 0 96px;
+  border-top: 1px solid var(--line);
+}
+.ig-closing p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.ig-closing a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: .08em;
+  transition: color .2s;
+}
+.ig-closing a:hover { color: var(--gold-soft) }
+
+/* ── Co-founder credit ────────────────────────────────────── */
+.ig-founders-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 22px;
+  background: var(--ig-blue-glow);
+  border: 1px solid var(--ig-blue-line);
+  border-radius: var(--radius-md);
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.ig-founders-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ig-founders-names {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ig-founder-name {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.ig-founders-x {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.ig-founder-role {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+</style>
+<meta property="og:title" content="InsightGrade — AI-Assisted Academic Evaluation Infrastructure" />
+<meta property="og:description" content="Reducing educator workload and improving evaluation quality through deep AI reasoning and explainable grading — co-built by Bare Branding Systems and Dr. Leo Grassi." />
+<meta property="og:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.barebrandingsystems.com/assets/images/og-cover.jpg" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/about.html">About</a>
+      <a href="/journey.html">Journey</a>
+      <a href="/ai-automation.html">Systems</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">Infrastructure <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown-panel" role="menu">
+          <div class="nav-dropdown-panel-inner">
+          <a href="/ventures.html" role="menuitem">Infrastructure Overview</a>
+          <a href="/ai-automation.html" role="menuitem">AI &amp; Automation</a>
+          <a href="/lms-insight-analysis.html" class="active" role="menuitem">Education Systems</a>
+          <a href="/web3-rwa.html" role="menuitem">Real Estate Tokenization</a>
+          <a href="/real-estate-infrastructure.html" role="menuitem">Real Estate Infrastructure</a>
+          <a href="/ventures.html" role="menuitem">Growth &amp; Media Systems</a>
+          </div>
+        </div>
+      </div>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle theme">
+      <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+      <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- HEADER -->
+<section class="ig-header">
+  <div class="container">
+    <div class="ig-breadcrumb-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/ventures.html">Infrastructure</a> &nbsp;/&nbsp; Education Systems</nav>
+    </div>
+
+    <div class="collab-badge">
+      <span class="collab-badge-dot" aria-hidden="true"></span>
+      <span class="collab-badge-text">Co-Founder Build &mdash; Dr. Leo Grassi &times; Bare Branding Systems</span>
+    </div>
+
+    <div class="ig-eyebrow">Education Systems &middot; Active Development</div>
+    <h1 class="ig-h1"><em>InsightGrade</em></h1>
+    <p class="ig-subtitle">AI-Assisted Academic Evaluation Infrastructure — end-to-end systems designed to reduce educator workload and improve evaluation quality.</p>
+
+    <div class="ig-position-strip" role="list">
+      <div class="ig-position-not" role="listitem">
+        <div class="ig-position-label">Not</div>
+        <div class="ig-position-value">An LMS</div>
+      </div>
+      <div class="ig-position-not" role="listitem">
+        <div class="ig-position-label">Not</div>
+        <div class="ig-position-value">A chatbot</div>
+      </div>
+      <div class="ig-position-not" role="listitem">
+        <div class="ig-position-label">Not</div>
+        <div class="ig-position-value">An AI teacher replacement</div>
+      </div>
+      <div class="ig-position-is" role="listitem">
+        <div class="ig-position-label">We are</div>
+        <div class="ig-position-value">AI-assisted academic evaluation infrastructure. Educators assist, humans decide.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top:52px"><hr class="ig-header-rule" /></div>
+</section>
+
+<!-- INTRO COPY -->
+<section class="ig-body">
+  <div class="container">
+    <div class="ig-prose">
+      <p>Academic evaluation is one of education's most time-intensive, high-stakes workloads. Professors spend hours grading discussion threads — assessing reasoning depth, engagement quality, citation rigor, and originality — often with inconsistent rubric alignment and limited bandwidth for meaningful feedback.</p>
+      <p>InsightGrade is built to change that. It is infrastructure — not a grading shortcut. Each evaluation passes through a multi-model AI system that analyzes thinking quality, generates structured breakdowns with justification, and surfaces everything for professor review before anything is finalized or exported.</p>
+      <p>The result is more consistent, higher-quality feedback delivered at scale — while keeping the professor firmly in control at every step.</p>
+    </div>
+
+    <div class="ig-status">
+      <div class="ig-status-label">Build Status</div>
+      <div class="ig-status-text">
+        <span class="ig-status-dot" aria-hidden="true"></span>
+        MVP in active development — live demo available
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL INFRASTRUCTURE -->
+<section class="ig-infra">
+  <div class="container">
+    <div class="ig-section-header">
+      <div class="ig-section-eyebrow">Operational Infrastructure</div>
+      <h2 class="ig-section-title">What We Are Building</h2>
+      <p class="ig-section-subtitle">The backend systems and operational layers that make evaluation infrastructure possible at institutional scale.</p>
+    </div>
+
+    <div class="ig-infra-grid" role="list">
+
+      <!-- Secure & Compliant -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+          </div>
+          <div class="ig-infra-name">Secure &amp; Compliant</div>
+        </div>
+        <div class="ig-infra-desc">FERPA-aligned data handling, encryption, and privacy by design. Academic data is treated with institutional-grade security standards at every layer of the system.</div>
+      </div>
+
+      <!-- Data Processing Layer -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+          </div>
+          <div class="ig-infra-name">Data Processing Layer</div>
+        </div>
+        <div class="ig-infra-desc">Scalable ingestion and processing of discussion content and rubrics. Built to handle diverse LMS export formats and normalize them into structured evaluation-ready input.</div>
+      </div>
+
+      <!-- AI Evaluation Engine -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+          </div>
+          <div class="ig-infra-name">AI Evaluation Engine</div>
+        </div>
+        <div class="ig-infra-desc">Multi-model AI system optimized for deep academic reasoning and rubric alignment. Evaluates critical thinking, engagement quality, citations, originality, and peer interaction — not just surface participation.</div>
+      </div>
+
+      <!-- Professor Memory -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+          </div>
+          <div class="ig-infra-name">Professor Memory</div>
+        </div>
+        <div class="ig-infra-desc">Continuous learning of grading patterns, preferences, and rubric interpretation. The system adapts to each professor's standards over time — personalizing evaluation to their voice, not replacing it.</div>
+      </div>
+
+      <!-- Analytics & Insights -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+          </div>
+          <div class="ig-infra-name">Analytics &amp; Insights</div>
+        </div>
+        <div class="ig-infra-desc">Dashboards for educators and institutions to track evaluation quality and impact over time. Surfaces patterns in student engagement, feedback effectiveness, and rubric performance at class and department level.</div>
+      </div>
+
+      <!-- Integrations -->
+      <div class="ig-infra-card" role="listitem">
+        <div class="ig-infra-card-top">
+          <div class="ig-infra-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z"/></svg>
+          </div>
+          <div class="ig-infra-name">Integrations</div>
+        </div>
+        <div class="ig-infra-desc">Seamless sync with LMS platforms — Canvas live, more coming. Grades and feedback export directly to the gradebook, removing manual re-entry and keeping institutional workflows intact.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="ig-outcomes">
+  <div class="container">
+    <div class="ig-section-eyebrow" style="margin-bottom:18px">What This Infrastructure Drives</div>
+    <div class="ig-outcomes-list" role="list">
+      <span class="ig-outcome-chip" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        Higher quality feedback
+      </span>
+      <span class="ig-outcome-chip" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        Consistent, fair grading
+      </span>
+      <span class="ig-outcome-chip" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        Reduced educator workload &amp; burnout
+      </span>
+      <span class="ig-outcome-chip" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        Stronger student learning outcomes
+      </span>
+      <span class="ig-outcome-chip" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        Institutional confidence &amp; adoption
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- MVP DEMO -->
+<section class="ig-demo">
+  <div class="container">
+    <div class="ig-section-eyebrow" style="margin-bottom:18px">Live Demo</div>
+    <div class="ig-demo-card">
+      <div class="ig-demo-card-top">
+        <div class="ig-demo-meta">
+          <div class="ig-demo-label">
+            <span class="ig-demo-label-dot" aria-hidden="true"></span>
+            MVP &mdash; In Development
+          </div>
+          <div class="ig-demo-title">InsightGrade — Working Prototype</div>
+          <div class="ig-demo-desc">The infrastructure is being built in the open. The current MVP demonstrates the core evaluation flow — upload, AI analysis, grading output, and professor review layer.</div>
+        </div>
+        <a href="https://project-d2uef.vercel.app/" target="_blank" rel="noopener noreferrer" class="ig-demo-cta">
+          View Live Demo
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </a>
+      </div>
+      <div class="ig-demo-card-body">
+        <div class="ig-demo-spec">
+          <span class="ig-demo-spec-key">Platform</span>
+          <span class="ig-demo-spec-val">Vercel — project-d2uef</span>
+        </div>
+        <div class="ig-demo-spec">
+          <span class="ig-demo-spec-key">Stage</span>
+          <span class="ig-demo-spec-val">MVP / Active iteration</span>
+        </div>
+        <div class="ig-demo-spec">
+          <span class="ig-demo-spec-key">LMS Integration</span>
+          <span class="ig-demo-spec-val">Canvas (live)</span>
+        </div>
+        <div class="ig-demo-spec">
+          <span class="ig-demo-spec-key">AI Stack</span>
+          <span class="ig-demo-spec-val">Multi-model evaluation engine</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="ig-closing">
+  <div class="container">
+
+    <div class="ig-founders-bar" role="presentation">
+      <span class="ig-founders-label">Co-Founders</span>
+      <div class="ig-founders-names">
+        <span class="ig-founder-name">Dr. Leo Grassi <span class="ig-founder-role">— Academic Lead &amp; Domain Expert</span></span>
+        <span class="ig-founders-x">&times;</span>
+        <span class="ig-founder-name">Crystal Thuy Dong <span class="ig-founder-role">— Systems &amp; Infrastructure</span></span>
+      </div>
+    </div>
+
+    <p>InsightGrade is being built as a long-term infrastructure play — not a feature, not a plugin. If you're an educator, institution, or investor interested in where academic evaluation is heading, reach out.</p>
+    <a href="/contact.html">Start a conversation &rarr;</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Bare Branding Systems home"><span>Bare Branding<small>&amp; Systems</small></span></a>
+        <p>Bare Branding Systems designs operational systems that organize complexity across modern industries.</p>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/journey.html">Journey</a></li><li><a href="/blog.html">Insights</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Systems</h5><ul><li><a href="/ai-infrastructure.html">AI Infrastructure</a></li><li><a href="/workflow-systems.html">Workflow Systems</a></li><li><a href="/operational-infrastructure.html">Operational Infrastructure</a></li><li><a href="/ai-automation.html">AI &amp; Automation</a></li></ul></div>
+      <div class="footer-col"><h5>Infrastructure</h5><ul><li><a href="/lms-insight-analysis.html">Education Systems</a></li><li><a href="/web3-rwa.html">Real Estate Tokenization</a></li><li><a href="/real-estate-infrastructure.html">Real Estate Infrastructure</a></li><li><a href="/ventures.html">Infrastructure Overview</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>&copy; <span data-year>2026</span> Bare Branding Systems. All rights reserved.</div><div><a href="mailto:hello@barebrandingsystems.com">hello@barebrandingsystems.com</a></div></div>
+  </div>
+</footer>
+
+<script src="/assets/js/theme.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/chatbot.js" defer></script>
+<script src="/assets/js/motion.js" defer></script>
+</body>
+</html>
