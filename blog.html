@@ -43,20 +43,14 @@
 .journal-hero {
   position: relative;
   width: 100%;
-  height: 500px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
   background: #0a0a0c;
+  overflow: hidden;
 }
 .journal-hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
   display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
   z-index: 0;
 }
 .journal-hero-overlay {
@@ -65,17 +59,19 @@
   z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(8,8,10,.96) 0%,
-    rgba(8,8,10,.88) 38%,
-    rgba(8,8,10,.55) 62%,
-    rgba(8,8,10,.12) 100%
+    rgba(8,8,10,.97) 0%,
+    rgba(8,8,10,.90) 35%,
+    rgba(8,8,10,.50) 58%,
+    rgba(8,8,10,.08) 100%
   );
 }
 .journal-hero-content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  padding: 56px 0 52px;
-  max-width: 560px;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 .journal-hero-content h1 {
   font-family: var(--font-serif);
@@ -132,8 +128,8 @@
   line-height: 1;
 }
 @media (max-width: 640px) {
-  .journal-hero { height: 360px; }
-  .journal-hero-content { padding: 40px 0 36px; max-width: 100%; }
+  .journal-hero-content { max-width: 100%; }
+  .journal-hero-content h1 { font-size: clamp(24px, 7vw, 38px); }
   .journal-hero-content h1 { font-size: clamp(30px, 8vw, 46px); }
   .journal-hero-overlay {
     background: linear-gradient(to bottom,
@@ -377,8 +373,9 @@
     fetchpriority="high"
   />
   <div class="journal-hero-overlay" aria-hidden="true"></div>
-  <div class="container">
-    <div class="journal-hero-content">
+  <div class="journal-hero-content">
+    <div class="container">
+      <div style="max-width:520px">
       <h1>Business Journal,<br>insights and perspectives</h1>
       <hr class="journal-hero-rule" />
       <p class="journal-hero-tagline">Research. Analysis. Perspectives.</p>
@@ -387,9 +384,11 @@
         Explore Insights
         <span class="journal-hero-cta-arr" aria-hidden="true">→</span>
       </a>
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- FEATURED ARTICLE -->
 <section style="padding: 80px 0 0" id="articles">
