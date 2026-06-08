@@ -43,7 +43,7 @@
 .journal-hero {
   position: relative;
   width: 100%;
-  min-height: 540px;
+  height: 420px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 30%;
   display: block;
   z-index: 0;
 }
@@ -74,8 +74,8 @@
 .journal-hero-content {
   position: relative;
   z-index: 2;
-  padding: 96px 0 88px;
-  max-width: 580px;
+  padding: 56px 0 52px;
+  max-width: 560px;
 }
 .journal-hero-content h1 {
   font-family: var(--font-serif);
@@ -132,8 +132,8 @@
   line-height: 1;
 }
 @media (max-width: 640px) {
-  .journal-hero { min-height: 440px; }
-  .journal-hero-content { padding: 72px 0 64px; max-width: 100%; }
+  .journal-hero { height: 320px; }
+  .journal-hero-content { padding: 40px 0 36px; max-width: 100%; }
   .journal-hero-content h1 { font-size: clamp(30px, 8vw, 46px); }
   .journal-hero-overlay {
     background: linear-gradient(to bottom,
